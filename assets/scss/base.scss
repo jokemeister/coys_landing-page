@@ -1,0 +1,100 @@
+@use "sass:map";
+@import "../../node_modules/bootstrap/scss/variables";
+// Font families
+$primaryFontFamily: 'Gilroy', sans-serif;
+$secondaryFontFamily: 'Roboto Condensed', sans-serif;
+// /Font families
+
+// Colors
+$project-colors: (
+  "darkGrey": rgba(88, 89, 91, 1),
+  "lightGrey": rgba(234, 230, 222, 1),
+  "darkBeige": rgba(211, 167, 133, 1),
+  "beige": rgba(240, 222, 208, 1)
+);
+$theme-colors: map-merge($theme-colors, $project-colors);
+// /Colors
+
+// Breakpoints
+
+// 
+
+body {
+  font-family: $primaryFontFamily;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none !important;
+  color: var(--darkGrey) !important;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+h1, h2, h3, h4, h5, p {
+  font-weight: 300;
+}
+
+h1 {
+  font-size: 22px;
+  line-height: 1.090909;
+  @media screen and (min-width: map.get($grid-breakpoints, "lg")) {
+    font-size: 64px;
+    font-weight: 800;
+  }
+}
+
+h2 {
+  font-size: 18px;
+  line-height: 1,166667;
+  @media screen and (min-width: map.get($grid-breakpoints, "lg")) {
+    font-size: 48px;
+    line-height: 1.25;
+  }
+}
+
+h3, h4 {
+  text-transform: uppercase;
+  letter-spacing: 10%;
+}
+
+h3 {
+  font-size: 14px;
+  line-height: 1.28571;
+  @media screen and (min-width: map.get($grid-breakpoints, "lg")) {
+    font-size: 32px;
+    line-height: 1.25;
+  }
+}
+
+h4, h5 {
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+h5 {
+  @media screen and (min-width: map.get($grid-breakpoints, "lg")) {
+    font-size: 24px;
+  }
+}
+
+p {
+  font-size: 11px;
+  line-height: 1.6363636;
+  margin: 12px 0;
+  @media screen and (min-width: map.get($grid-breakpoints, "lg")) {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+}
+
+// .container {
+//   max-width: 87.5%;
+//   width: 90%;
+//   padding: 0;
+// }

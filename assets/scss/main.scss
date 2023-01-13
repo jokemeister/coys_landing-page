@@ -1,0 +1,26 @@
+// Bootstrap
+@import "../../node_modules/bootstrap/scss/functions";
+@import "../../node_modules/bootstrap/scss/variables";
+@import "../../node_modules/bootstrap/scss/maps";
+@import "../../node_modules/bootstrap/scss/mixins";
+@import "../../node_modules/bootstrap/scss/root";
+@import "../../node_modules/bootstrap/scss/reboot";
+@import "../../node_modules/bootstrap/scss/containers";
+@import "../../node_modules/bootstrap/scss/grid";
+// /Bootstrap
+
+@import "./base.scss";
+@import "./button.scss";
+
+.btn-burger {
+  background: none;
+  border: none;
+  width: 18px;
+  height: 12px;
+  margin-right: 15px;
+}
+
+.btn-burger-icon {
+  width: 100%;
+  height: 100%;
+}
