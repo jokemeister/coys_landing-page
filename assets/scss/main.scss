@@ -29,8 +29,11 @@
   left: 0;
 }
 
+// Header
+
 .header {
   color: map.get($theme-colors, "darkGrey");
+  background-color: map.get($theme-colors, "lightBeige");
 }
 
 .header__logo {
@@ -57,3 +60,57 @@
 .header__search {
   margin-right: 1.25rem;
 }
+
+// Navbar-mobile
+  .navbar-mobile {
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+    text-align: center;
+    padding: 2.5rem 1.25rem 6.25rem;
+    transition: .8s ease-out;
+    left: -.75rem;
+    top: -110vh;
+    opacity: 0;
+  }
+
+  .navbar-mobile.is-active {
+    top: 0;
+    opacity: 1;
+  }
+
+  .navbar-mobile__logo {
+    width: 2.5rem;
+    height: 100%;
+    margin-bottom: 2rem;
+  }
+
+  // Navigation-mobile
+  .nav-mobile__item {
+    border-bottom: 1px solid map.get($theme-colors, 'darkGrey');
+    padding: .46875rem;
+    &:first-child {
+      border-top: 1px solid map.get($theme-colors, 'darkGrey');
+    }
+    &:last-child {
+      margin-top: 2.375rem;
+      border: none;
+    }
+  }
+
+  .navbar-mobile__instagram-icon,
+  .navbar-mobile__facebook-icon {
+    width: 1rem;
+    height: 100%;
+  }
+
+  .navbar-mobile__instagram-icon {
+    margin-right: 1.25rem;
+  }
+
+
+
+  // /Navigation-mobile
+
+// 
+// /Header
