@@ -10,7 +10,8 @@ $project-colors: (
   "darkGrey": rgba(88, 89, 91, 1),
   "lightGrey": rgba(234, 230, 222, 1),
   "darkBeige": rgba(211, 167, 133, 1),
-  "beige": rgba(240, 222, 208, 1)
+  "beige": rgba(240, 222, 208, 1),
+  "lightBeige": rgba(249, 248, 246, 1),
 );
 $theme-colors: map-merge($theme-colors, $project-colors);
 // /Colors
