@@ -2295,6 +2295,88 @@ p {
   }
 }
 
+.sex__women-block,
+.sex__men-block {
+  position: relative;
+  height: 100vh;
+  z-index: 1;
+  overflow: hidden;
+}
+@media screen and (min-width: 992px) {
+  .sex__women-block,
+  .sex__men-block {
+    height: 740px;
+  }
+}
+
+.sex__women-block {
+  background-color: rgb(244, 216, 212);
+}
+
+.sex__men-block {
+  background-color: rgb(136, 149, 164);
+}
+
+.sex__women-img,
+.sex__men-img {
+  position: absolute;
+  bottom: 0;
+  height: 100%;
+  z-index: 2;
+}
+
+.sex__women-img {
+  left: 0;
+}
+
+.sex__men-img {
+  right: 0;
+}
+
+.sex__women-link,
+.sex__men-link {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.125rem;
+  line-height: 0.75em;
+  font-weight: 300;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  width: 13rem;
+  height: 3.5rem;
+  background: rgb(249, 248, 246);
+}
+@media screen and (min-width: 576px) {
+  .sex__women-link,
+  .sex__men-link {
+    font-size: 1.25rem;
+    width: 14.5rem;
+    height: 3.92rem;
+  }
+}
+@media screen and (min-width: 768px) {
+  .sex__women-link,
+  .sex__men-link {
+    font-size: 1.375rem;
+    width: 16rem;
+    height: 4.33rem;
+  }
+}
+@media screen and (min-width: 992px) {
+  .sex__women-link,
+  .sex__men-link {
+    font-size: 1.5rem;
+    width: 17rem;
+    height: 4.625rem;
+  }
+}
+
 .footer {
   color: rgb(88, 89, 91);
   background-color: rgb(249, 248, 246);
