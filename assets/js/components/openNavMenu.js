@@ -1,5 +1,3 @@
-import "bootstrap/js/src/carousel.js"; 
-
 const btnBurger = document.querySelector('.btn-burger');
 const navbarMobile = document.querySelector('.navbar-mobile');
 
