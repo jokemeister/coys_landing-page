@@ -9,3 +9,10 @@ import "./components/openNavMenu.js";
 // phone number input formatting
 import "./components/formatPhoneNumber.js";
 // /phone number input formatting
+
+document.addEventListener('DOMContentLoaded', () => {
+  const orderInput = document.querySelector('.js--order-input');
+  orderInput.addEventListener('input', (e) => {
+    formatPhoneNumber(orderInput, e.data);
+  })
+});
