@@ -20,7 +20,7 @@
     <!-- /STYLES -->
 
     <!-- SCRIPT -->
-    <script defer type="module" src="./assets/js/script.js"></script>
+    <script defer type="module" src="./assets/js/index.js"></script>
     <!-- /SCRIPT -->
     <title>COYS</title>
   </head>
@@ -454,6 +454,54 @@
         </div>
       </section>
       <!-- /SEX SECTION -->
+
+      <!-- ORDER SECTION -->
+      <section class="order">
+        <div class="order__container container">
+          <h2 class="order__title">Індивідуальні замовлення</h2>
+          <div class="order__content row gx-0">
+            <div
+              class="order__content-title-group row col-xs-12 col-lg-6 order-lg-2"
+            >
+              <h5 class="order__content-title col-12">
+                Ми приймаємо індивідуальні замовлення при 100% оплаті.
+              </h5>
+              <h5 class="order__content-title col-12">
+                Обирайте наші моделі в індивідуальних кольорах і розмірах
+              </h5>
+            </div>
+            <img
+              class="order__content-image col-xs-12 col-lg-2 order-lg-1"
+              src="./assets/icons/colored_logo.png"
+              alt="coys_logo"
+            />
+            <form
+              class="order__content-input-group row gx-0 col-xs-12 col-lg-4 order-lg-3"
+            >
+              <label for="phoneNumber" class="order__content-text col-12"
+                >Для індувідуального пошиву, залишіть свій номер</label
+              >
+              <input
+                type="tel"
+                class="order__content-input js--order-input col-7"
+                id="phoneNumber"
+                value=""
+                placeholder="+380__ ___ __ __"
+                aria-label="Recipient's username"
+                aria-describedby="button-addon2"
+              />
+              <button
+                class="order__content-btn col-5"
+                type="button"
+                id="button-addon2"
+              >
+                Замовити
+              </button>
+            </form>
+          </div>
+        </div>
+      </section>
+      <!-- /ORDER SECTION -->
     </main>
     <!-- /MAIN -->
 

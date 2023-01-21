@@ -14,6 +14,17 @@ $project-colors: (
   "lightBeige": rgba(249, 248, 246, 1),
 );
 $theme-colors: map-merge($theme-colors, $project-colors);
+
+$button-colors: (
+  "primaryActive": rgba(88, 89, 91, 1),
+  "primaryHover": rgba(116, 118, 123, 1),
+  "primaryOnClick": rgba(70, 71, 74, 1),
+  "primaryDisabled": rgba(212, 207, 197, 1),
+  "secondaryActive": map.get($theme-colors, "beige"),
+  "secondaryHover": rgba(228, 197, 173, 1),
+  "secondaryOnClick": rgba(211, 167, 133, 1),
+  "secondaryDisabled": rgba(212, 207, 197, 1),
+);
 // /Colors
 
 // Breakpoints
@@ -99,9 +110,3 @@ p {
     line-height: 1.5em;
   }
 }
-
-// .container {
-//   max-width: 87.5%;
-//   width: 90%;
-//   padding: 0;
-// }
