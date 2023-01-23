@@ -4847,12 +4847,22 @@ body {
 
 a {
   text-decoration: none !important;
-  color: var(--darkGrey) !important;
+  color: rgb(88, 89, 91);
   font-size: 10px;
   line-height: 1.4em;
   text-transform: uppercase;
   letter-spacing: 0.3em;
   font-weight: 300;
+}
+
+a:hover {
+  text-decoration: underline !important;
+  text-underline-offset: 2px;
+  color: rgb(88, 89, 91);
+}
+
+a:active {
+  color: rgb(211, 167, 133);
 }
 
 ul {
@@ -5351,46 +5361,46 @@ p {
   }
 }
 
-.sex__women-block,
-.sex__men-block {
+.gender__women-block,
+.gender__men-block {
   position: relative;
   height: 100vh;
   z-index: 1;
   overflow: hidden;
 }
 @media screen and (min-width: 992px) {
-  .sex__women-block,
-  .sex__men-block {
+  .gender__women-block,
+  .gender__men-block {
     height: 740px;
   }
 }
 
-.sex__women-block {
+.gender__women-block {
   background-color: rgb(244, 216, 212);
 }
 
-.sex__men-block {
+.gender__men-block {
   background-color: rgb(136, 149, 164);
 }
 
-.sex__women-img,
-.sex__men-img {
+.gender__women-img,
+.gender__men-img {
   position: absolute;
   bottom: 0;
   height: 100%;
   z-index: 2;
 }
 
-.sex__women-img {
+.gender__women-img {
   left: 0;
 }
 
-.sex__men-img {
+.gender__men-img {
   right: 0;
 }
 
-.sex__women-link,
-.sex__men-link {
+.gender__women-link,
+.gender__men-link {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -5409,24 +5419,24 @@ p {
   background: rgb(249, 248, 246);
 }
 @media screen and (min-width: 576px) {
-  .sex__women-link,
-  .sex__men-link {
+  .gender__women-link,
+  .gender__men-link {
     font-size: 1.25rem;
     width: 14.5rem;
     height: 3.92rem;
   }
 }
 @media screen and (min-width: 768px) {
-  .sex__women-link,
-  .sex__men-link {
+  .gender__women-link,
+  .gender__men-link {
     font-size: 1.375rem;
     width: 16rem;
     height: 4.33rem;
   }
 }
 @media screen and (min-width: 992px) {
-  .sex__women-link,
-  .sex__men-link {
+  .gender__women-link,
+  .gender__men-link {
     font-size: 1.5rem;
     width: 17rem;
     height: 4.625rem;

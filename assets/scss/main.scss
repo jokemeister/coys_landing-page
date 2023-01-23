@@ -26,18 +26,25 @@
       "darkBeige": rgba(211, 167, 133, 1),
       "beige": rgba(240, 222, 208, 1),
       "lightBeige": rgba(249, 248, 246, 1),
+      "lightGreyTwo": rgba(212, 207, 197, 1)
     );
     $theme-colors: map-merge($theme-colors, $project-colors);
 
     $button-colors: (
-      "primaryActive": rgba(88, 89, 91, 1),
+      "primaryActive": map.get($theme-colors, "darkGrey"),
       "primaryHover": rgba(116, 118, 123, 1),
       "primaryOnClick": rgba(70, 71, 74, 1),
-      "primaryDisabled": rgba(212, 207, 197, 1),
+      "primaryDisabled": map.get($theme-colors, "lightGreyTwo"),
       "secondaryActive": map.get($theme-colors, "beige"),
       "secondaryHover": rgba(228, 197, 173, 1),
-      "secondaryOnClick": rgba(211, 167, 133, 1),
-      "secondaryDisabled": rgba(212, 207, 197, 1),
+      "secondaryOnClick": map.get($theme-colors, "darkBeige"),
+      "secondaryDisabled": map.get($theme-colors, "lightGreyTwo"),
+    );
+
+    $link-colors: (
+      "active": map.get( $theme-colors, 'darkBeige'),
+      "hover": map.get( $theme-colors, 'darkGrey'),
+      "disabled": map.get($theme-colors, "lightGreyTwo"),
     );
 
     $categories-colors: (
@@ -55,12 +62,26 @@
 
   a {
     text-decoration: none !important;
-    color: var(--darkGrey) !important;
+    color: map.get( $theme-colors, 'darkGrey');
     font-size: 10px;
     line-height: 1.4em;
     text-transform: uppercase;
     letter-spacing: .3em;
     font-weight: 300;
+  }
+
+  a:hover {
+    text-decoration: underline !important;
+    text-underline-offset: 2px;
+    color: map.get( $theme-colors, 'darkGrey');
+  }
+
+  a:active {
+    color: map.get( $theme-colors, 'darkBeige');
+  }
+
+  a:disabled {
+
   }
 
   ul {
@@ -540,9 +561,9 @@
     }
   // /Promo section
 
-  // Sex section
-    .sex__women-block,
-    .sex__men-block {
+  // gender section
+    .gender__women-block,
+    .gender__men-block {
       position: relative;
       height: 100vh;
       z-index: 1;
@@ -553,32 +574,32 @@
       }
     }
 
-    .sex__women-block {
+    .gender__women-block {
       background-color: rgba(244, 216, 212, 1);
     }
 
-    .sex__men-block {
+    .gender__men-block {
       background-color: rgba(136, 149, 164, 1);
     }
 
-    .sex__women-img,
-    .sex__men-img {
+    .gender__women-img,
+    .gender__men-img {
       position: absolute;
       bottom: 0;
       height: 100%;
       z-index: 2;
     }
 
-    .sex__women-img {
+    .gender__women-img {
       left: 0;
     }
 
-    .sex__men-img {
+    .gender__men-img {
       right: 0;
     }
 
-    .sex__women-link,
-    .sex__men-link {
+    .gender__women-link,
+    .gender__men-link {
       position: absolute;
       top: 50%;
       left: 50%;
@@ -614,7 +635,7 @@
         height: 4.625rem;
       }
     }
-  // /Sex section
+  // /gender section
 
   // Order section
     .order {
