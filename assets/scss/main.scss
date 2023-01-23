@@ -73,15 +73,15 @@
   a:hover {
     text-decoration: underline !important;
     text-underline-offset: 2px;
-    color: map.get( $theme-colors, 'darkGrey');
+    color: map.get($link-colors, 'hover');
   }
 
   a:active {
-    color: map.get( $theme-colors, 'darkBeige');
+    color: map.get($link-colors, 'active');
   }
 
   a:disabled {
-
+    color: map.get($link-colors, 'disabled');
   }
 
   ul {

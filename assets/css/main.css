@@ -4865,6 +4865,10 @@ a:active {
   color: rgb(211, 167, 133);
 }
 
+a:disabled {
+  color: rgb(212, 207, 197);
+}
+
 ul {
   list-style: none;
   margin: 0;
