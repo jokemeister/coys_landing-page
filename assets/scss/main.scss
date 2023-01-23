@@ -637,7 +637,7 @@
   @media screen and (min-width: map.get($grid-breakpoints, "md")) {
     font-size: 1rem;
     line-height: 1.5em;
-    padding: .75rem;
+    padding: 0.75rem;
   }
 }
 
@@ -660,13 +660,13 @@
   }
 
   @media screen and (min-width: map.get($grid-breakpoints, "md")) {
-    font-size: .75rem;
+    font-size: 0.75rem;
     line-height: 1.125em;
     padding: 1rem;
   }
 
   @media screen and (min-width: map.get($grid-breakpoints, "xl")) {
-    font-size: .875rem;
+    font-size: 0.875rem;
     padding: 1.125rem;
   }
 }
@@ -684,6 +684,79 @@
 }
 
 // /Order section
+
+// Categories section
+.categories__block {
+  position: relative;
+  height: 100vh;
+  z-index: 1;
+}
+
+.categories__first-block {
+  background-color: map-get($categories-colors, "firstBlock");
+}
+
+.categories__second-block {
+  background-color: map-get($categories-colors, "secondBlock");
+}
+
+.categories__third-block {
+  background-color: map-get($categories-colors, "thirdBlock");
+}
+
+.categories__link {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1.125rem;
+  line-height: 3.33em;
+  letter-spacing: 0.5em;
+  text-transform: uppercase;
+  z-index: 3;
+
+  @media screen and (min-width: map.get($grid-breakpoints, "sm")) {
+    font-size: 1.25rem;
+  }
+
+  @media screen and (min-width: map.get($grid-breakpoints, "md")) {
+    font-size: 1.5rem;
+    line-height: 3em;
+  }
+
+  @media screen and (min-width: map.get($grid-breakpoints, "lg")) {
+    font-size: 1.675rem;
+    line-height: 2.5em;
+  }
+
+  @media screen and (min-width: map.get($grid-breakpoints, "xl")) {
+    font-size: 1.875rem;
+    line-height: 2em;
+  }
+}
+
+.categories__img {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  max-width: 322px;
+  z-index: 2;
+  max-height: calc(100vh - 80px);
+  
+  @media screen and (min-width: map.get($grid-breakpoints, "sm")) {
+    height: 90vh;
+    width: auto;
+    max-height: fit-content;
+    max-width: 510px;
+  }
+
+  @media screen and (min-width: map.get($grid-breakpoints, "lg")) {
+    height: auto;
+    width: 100%;
+  }
+}
+// /Categories section
 
 // /Main
 
