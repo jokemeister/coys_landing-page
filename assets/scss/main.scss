@@ -323,6 +323,7 @@
   // Promo section
     .promo__slider {
       height: 100vh;
+
       @media screen and (min-width: map.get($grid-breakpoints, "lg")) {
         max-height: 808px;
       }
@@ -365,6 +366,7 @@
     }
 
     .slider-caption {
+      position: absolute;
       left: 8%;
       right: 8%;
       text-align: center;
@@ -379,10 +381,12 @@
       }
 
       @media screen and (min-width: map.get($grid-breakpoints, "md")) {
+        left: 35%;
+        right: 35%;
         bottom: 8rem;
       }
 
-      @media screen and (min-width: map.get($grid-breakpoints, "lg")) {
+      @media screen and (min-width: map.get($grid-breakpoints, "xxl")) {
         left: 35%;
         right: 35%;
         bottom: 11.5rem;

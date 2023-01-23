@@ -5165,6 +5165,7 @@ p {
 }
 
 .slider-caption {
+  position: absolute;
   left: 8%;
   right: 8%;
   text-align: center;
@@ -5182,10 +5183,12 @@ p {
 }
 @media screen and (min-width: 768px) {
   .slider-caption {
+    left: 35%;
+    right: 35%;
     bottom: 8rem;
   }
 }
-@media screen and (min-width: 992px) {
+@media screen and (min-width: 1400px) {
   .slider-caption {
     left: 35%;
     right: 35%;
