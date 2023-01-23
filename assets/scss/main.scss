@@ -1,20 +1,134 @@
 @use "sass:map";
+
 // Bootstrap
-@import "../../node_modules/bootstrap/scss/functions";
-@import "../../node_modules/bootstrap/scss/variables";
-@import "../../node_modules/bootstrap/scss/maps";
-@import "../../node_modules/bootstrap/scss/mixins";
-@import "../../node_modules/bootstrap/scss/root";
-@import "../../node_modules/bootstrap/scss/reboot";
-@import "../../node_modules/bootstrap/scss/containers";
-@import "../../node_modules/bootstrap/scss/bootstrap-grid";
-@import "../../node_modules/bootstrap/scss/carousel";
+  @import "../../node_modules/bootstrap/scss/functions";
+  @import "../../node_modules/bootstrap/scss/variables";
+  @import "../../node_modules/bootstrap/scss/maps";
+  @import "../../node_modules/bootstrap/scss/mixins";
+  @import "../../node_modules/bootstrap/scss/root";
+  @import "../../node_modules/bootstrap/scss/reboot";
+  @import "../../node_modules/bootstrap/scss/containers";
+  @import "../../node_modules/bootstrap/scss/bootstrap-grid";
+  @import "../../node_modules/bootstrap/scss/carousel";
 // /Bootstrap
 
-@import "./base.scss";
+// Global
+
+  // Font families
+    $primaryFontFamily: 'Gilroy', sans-serif;
+    $secondaryFontFamily: 'Roboto Condensed', sans-serif;
+  // /Font families
+
+  // Colors
+    $project-colors: (
+      "darkGrey": rgba(88, 89, 91, 1),
+      "lightGrey": rgba(234, 230, 222, 1),
+      "darkBeige": rgba(211, 167, 133, 1),
+      "beige": rgba(240, 222, 208, 1),
+      "lightBeige": rgba(249, 248, 246, 1),
+    );
+    $theme-colors: map-merge($theme-colors, $project-colors);
+
+    $button-colors: (
+      "primaryActive": rgba(88, 89, 91, 1),
+      "primaryHover": rgba(116, 118, 123, 1),
+      "primaryOnClick": rgba(70, 71, 74, 1),
+      "primaryDisabled": rgba(212, 207, 197, 1),
+      "secondaryActive": map.get($theme-colors, "beige"),
+      "secondaryHover": rgba(228, 197, 173, 1),
+      "secondaryOnClick": rgba(211, 167, 133, 1),
+      "secondaryDisabled": rgba(212, 207, 197, 1),
+    );
+
+    $categories-colors: (
+      "firstBlock": rgba(226, 227, 156, 1),
+      "secondBlock": rgba(222, 213, 221, 1),
+      "thirdBlock": rgba(255, 211, 184, 1),
+    );
+  // /Colors 
+
+  body {
+    font-family: $primaryFontFamily;
+    margin: 0;
+    padding: 0;
+  }
+
+  a {
+    text-decoration: none !important;
+    color: var(--darkGrey) !important;
+    font-size: 10px;
+    line-height: 1.4em;
+    text-transform: uppercase;
+    letter-spacing: .3em;
+    font-weight: 300;
+  }
+
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  h1, h2, h3, h4, h5, p {
+    font-weight: 300;
+    color: black;
+  }
+
+  h1 {
+    font-size: 22px;
+    line-height: 1.090909em;
+    @media screen and (min-width: map.get($grid-breakpoints, "lg")) {
+      font-size: 64px;
+      font-weight: 800;
+    }
+  }
+
+  h2 {
+    font-size: 18px;
+    line-height: 1.166667em;
+    @media screen and (min-width: map.get($grid-breakpoints, "lg")) {
+      font-size: 48px;
+      line-height: 1.25;
+    }
+  }
+
+  h3, h4 {
+    text-transform: uppercase;
+    letter-spacing: 10%;
+  }
+
+  h3 {
+    font-size: 14px;
+    line-height: 1.28571em;
+    @media screen and (min-width: map.get($grid-breakpoints, "lg")) {
+      font-size: 32px;
+      line-height: 1.25em;
+    }
+  }
+
+  h4, h5 {
+    font-size: 12px;
+    line-height: 1.5em;
+  }
+
+  h5 {
+    @media screen and (min-width: map.get($grid-breakpoints, "lg")) {
+      font-size: 24px;
+    }
+  }
+
+  p {
+    font-size: 11px;
+    line-height: 1.6363636em;
+    margin: 12px 0;
+    @media screen and (min-width: map.get($grid-breakpoints, "lg")) {
+      font-size: 16px;
+      line-height: 1.5em;
+    }
+  }
+// /Global
 
 // Header
-
 .header {
   display: none;
 
@@ -26,789 +140,784 @@
   }
 }
 
-// Navbar
-.navbar {
-  margin: 0 auto;
-}
-.navbar__left-block,
-.navbar__middle-block,
-.navbar__right-block {
-  display: flex;
-  align-items: center;
-}
+  // Navbar
+    .navbar {
+      margin: 0 auto;
+    }
+    .navbar__left-block,
+    .navbar__middle-block,
+    .navbar__right-block {
+      display: flex;
+      align-items: center;
+    }
 
-.navbar__middle-block {
-  justify-content: flex-end;
-  @media screen and (min-width: map.get($grid-breakpoints, "xl")) {
-    justify-content: flex-start;
-  }
-  padding: 1.5rem;
-}
+    .navbar__middle-block {
+      justify-content: flex-end;
+      @media screen and (min-width: map.get($grid-breakpoints, "xl")) {
+        justify-content: flex-start;
+      }
+      padding: 1.5rem;
+    }
 
-.navbar__right-block {
-  @media screen and (min-width: map.get($grid-breakpoints, "lg")) {
-    justify-content: flex-end;
-  }
-}
+    .navbar__right-block {
+      @media screen and (min-width: map.get($grid-breakpoints, "lg")) {
+        justify-content: flex-end;
+      }
+    }
 
-// .navbar__nav {
-//   display: flex;
-//   align-items: center;
-//   justify-content: space-around;
-// }
+    .navbar__logo {
+      width: 10rem;
+      height: 100%;
+    }
 
-.navbar__logo {
-  width: 10rem;
-  height: 100%;
-}
+    .navbar__search,
+    .navbar__bag {
+      width: 1rem;
+      height: 100%;
+    }
+  // /Navbar
 
-.navbar__search,
-.navbar__bag {
-  width: 1rem;
-  height: 100%;
-}
-// /Navbar
+  // Header Mobile
+    .header-mobile {
+      display: block;
+      color: map.get($theme-colors, "darkGrey");
+      background-color: map.get($theme-colors, "lightBeige");
 
-// Header Mobile
-.header-mobile {
-  display: block;
-  color: map.get($theme-colors, "darkGrey");
-  background-color: map.get($theme-colors, "lightBeige");
+      @media screen and (min-width: map.get($grid-breakpoints, "lg")) {
+        display: none;
+      }
+    }
 
-  @media screen and (min-width: map.get($grid-breakpoints, "lg")) {
-    display: none;
-  }
-}
+    .header-mobile__logo {
+      @media screen and (min-width: map.get($grid-breakpoints, "sm")) {
+        width: 142px;
+        height: 34px;
+        margin-right: 10%;
+      }
 
-.header-mobile__logo {
-  @media screen and (min-width: map.get($grid-breakpoints, "sm")) {
-    width: 142px;
-    height: 34px;
-    margin-right: 10%;
-  }
+      width: 96px;
+      height: 23px;
+    }
 
-  width: 96px;
-  height: 23px;
-}
+    .header-mobile__left-block,
+    .header-mobile__right-block {
+      display: flex;
+      align-items: center;
+      padding: 1rem;
+    }
 
-.header-mobile__left-block,
-.header-mobile__right-block {
-  display: flex;
-  align-items: center;
-  padding: 1rem;
-}
+    .header-mobile__left-block {
+      padding-left: 1.25rem;
+      @media screen and (min-width: map.get($grid-breakpoints, "sm")) {
+        justify-content: space-between;
+      }
+    }
 
-.header-mobile__left-block {
-  padding-left: 1.25rem;
-  @media screen and (min-width: map.get($grid-breakpoints, "sm")) {
-    justify-content: space-between;
-  }
-}
+    .btn-burger {
+      position: relative;
+      background: none;
+      border: none;
+      width: 1.125rem;
+      height: 0.75rem;
+      margin-right: 1rem;
+      padding: 0;
+      @media screen and (min-width: map.get($grid-breakpoints, "sm")) {
+        width: 1.75rem;
+        height: 1.25rem;
+      }
+    }
 
-.btn-burger {
-  position: relative;
-  background: none;
-  border: none;
-  width: 1.125rem;
-  height: 0.75rem;
-  margin-right: 1rem;
-  padding: 0;
-  @media screen and (min-width: map.get($grid-breakpoints, "sm")) {
-    width: 1.75rem;
-    height: 1.25rem;
-  }
-}
+    .btn-burger-icon {
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
 
-.btn-burger-icon {
-  position: absolute;
-  top: 0;
-  left: 0;
-}
+    .header-mobile__right-block {
+      text-align: right;
+      padding-right: 1.25rem;
+      justify-content: flex-end;
 
-.header-mobile__right-block {
-  text-align: right;
-  padding-right: 1.25rem;
-  justify-content: flex-end;
+      @media screen and (min-width: map.get($grid-breakpoints, "lg")) {
+        display: block;
+        color: map.get($theme-colors, "darkGrey");
+        background-color: map.get($theme-colors, "lightBeige");
+      }
+    }
 
-  @media screen and (min-width: map.get($grid-breakpoints, "lg")) {
-    display: block;
-    color: map.get($theme-colors, "darkGrey");
-    background-color: map.get($theme-colors, "lightBeige");
-  }
-}
+    .header-mobile__search,
+    .header-mobile__bag {
+      width: 1rem;
+      height: 100%;
+      @media screen and (min-width: map.get($grid-breakpoints, "sm")) {
+        width: 1.5rem;
+      }
+    }
 
-.header-mobile__search,
-.header-mobile__bag {
-  width: 1rem;
-  height: 100%;
-  @media screen and (min-width: map.get($grid-breakpoints, "sm")) {
-    width: 1.5rem;
-  }
-}
+    .header-mobile__search {
+      margin-right: 1.25rem;
 
-.header-mobile__search {
-  margin-right: 1.25rem;
+      @media screen and (min-width: map.get($grid-breakpoints, "sm")) {
+        margin-right: 1.75rem;
+      }
+    }
 
-  @media screen and (min-width: map.get($grid-breakpoints, "sm")) {
-    margin-right: 1.75rem;
-  }
-}
+    // Navbar-mobile
+      .navbar-mobile {
+        position: relative;
+        height: 0;
+        width: 100vw;
+        text-align: center;
+        padding: 0;
+        transition: 0.8s ease-out;
+        left: -0.75rem;
+        top: -110vh;
+        opacity: 0;
+      }
 
-// Navbar-mobile
-.navbar-mobile {
-  position: relative;
-  height: 0;
-  width: 100vw;
-  text-align: center;
-  padding: 0;
-  transition: 0.8s ease-out;
-  left: -0.75rem;
-  top: -110vh;
-  opacity: 0;
-}
+      .navbar-mobile.is-active {
+        top: 0;
+        opacity: 1;
+        height: 100vh;
+        padding: 2.5rem 1.25rem 6.25rem;
+      }
 
-.navbar-mobile.is-active {
-  top: 0;
-  opacity: 1;
-  height: 100vh;
-  padding: 2.5rem 1.25rem 6.25rem;
-}
+      .navbar-mobile__logo {
+        width: 2.5rem;
+        height: 100%;
+        margin-bottom: 2rem;
+      }
 
-.navbar-mobile__logo {
-  width: 2.5rem;
-  height: 100%;
-  margin-bottom: 2rem;
-}
+      // Navigation-mobile
+        .navbar-mobile__item {
+          border-bottom: 1px solid map.get($theme-colors, "darkGrey");
+          padding: 0.46875rem;
+          &:first-child {
+            border-top: 1px solid map.get($theme-colors, "darkGrey");
+          }
+          &:last-child {
+            margin-top: 2.375rem;
+            border: none;
+          }
+        }
 
-// Navigation-mobile
-.navbar-mobile__item {
-  border-bottom: 1px solid map.get($theme-colors, "darkGrey");
-  padding: 0.46875rem;
-  &:first-child {
-    border-top: 1px solid map.get($theme-colors, "darkGrey");
-  }
-  &:last-child {
-    margin-top: 2.375rem;
-    border: none;
-  }
-}
+        .navbar-mobile__instagram-icon,
+        .navbar-mobile__facebook-icon {
+          width: 1rem;
+          height: 100%;
+        }
 
-.navbar-mobile__instagram-icon,
-.navbar-mobile__facebook-icon {
-  width: 1rem;
-  height: 100%;
-}
+        .navbar-mobile__instagram-icon {
+          margin-right: 1.25rem;
+        }
+      // /Navigation-mobile
 
-.navbar-mobile__instagram-icon {
-  margin-right: 1.25rem;
-}
-// /Navigation-mobile
-// /Navbar-mobile
-// /Header Mobile
+    // /Navbar-mobile
+
+  // /Header Mobile
 
 // /Header
 
 // Main
-// Promo section
 
-.promo__slider {
-  height: 100vh;
-  @media screen and (min-width: map.get($grid-breakpoints, "lg")) {
-    max-height: 808px;
-  }
-}
+  // Promo section
+    .promo__slider {
+      height: 100vh;
+      @media screen and (min-width: map.get($grid-breakpoints, "lg")) {
+        max-height: 808px;
+      }
+    }
 
-.slider-inner {
-  height: 100%;
-}
+    .slider-inner {
+      height: 100%;
+    }
 
-.slider-item {
-  position: relative;
-  height: 100%;
-  overflow: hidden;
+    .slider-item {
+      position: relative;
+      height: 100%;
+      overflow: hidden;
 
-  &::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background-color: rgba(66, 41, 23, 0.3);
-    z-index: 2;
-  }
-}
+      &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-color: rgba(66, 41, 23, 0.3);
+        z-index: 2;
+      }
+    }
 
-.slider-img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 1;
-  height: 100%;
-  width: 100%;
-  object-fit: cover;
-  object-position: top left;
+    .slider-img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 1;
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+      object-position: top left;
 
-  @media screen and (min-width: map.get($grid-breakpoints, "lg")) {
-    object-position: center;
-  }
-}
+      @media screen and (min-width: map.get($grid-breakpoints, "lg")) {
+        object-position: center;
+      }
+    }
 
-.slider-caption {
-  left: 8%;
-  right: 8%;
-  text-align: center;
-  z-index: 3;
+    .slider-caption {
+      left: 8%;
+      right: 8%;
+      text-align: center;
+      z-index: 3;
 
-  @media screen and (min-width: map.get($grid-breakpoints, "xs")) {
-    bottom: 4rem;
-  }
+      @media screen and (min-width: map.get($grid-breakpoints, "xs")) {
+        bottom: 4rem;
+      }
 
-  @media screen and (min-width: map.get($grid-breakpoints, "sm")) {
-    bottom: 6rem;
-  }
+      @media screen and (min-width: map.get($grid-breakpoints, "sm")) {
+        bottom: 6rem;
+      }
 
-  @media screen and (min-width: map.get($grid-breakpoints, "md")) {
-    bottom: 8rem;
-  }
+      @media screen and (min-width: map.get($grid-breakpoints, "md")) {
+        bottom: 8rem;
+      }
 
-  @media screen and (min-width: map.get($grid-breakpoints, "lg")) {
-    left: 35%;
-    right: 35%;
-    bottom: 11.5rem;
-  }
-}
+      @media screen and (min-width: map.get($grid-breakpoints, "lg")) {
+        left: 35%;
+        right: 35%;
+        bottom: 11.5rem;
+      }
+    }
 
-.slider-title {
-  font-weight: 800;
-  font-size: 30px;
-  line-height: 1.23em;
-  color: white;
+    .slider-title {
+      font-weight: 800;
+      font-size: 30px;
+      line-height: 1.23em;
+      color: white;
 
-  @media screen and (min-width: map.get($grid-breakpoints, "xs")) {
-    font-size: 40px;
-  }
+      @media screen and (min-width: map.get($grid-breakpoints, "xs")) {
+        font-size: 40px;
+      }
 
-  @media screen and (min-width: map.get($grid-breakpoints, "sm")) {
-    font-size: 48px;
-  }
+      @media screen and (min-width: map.get($grid-breakpoints, "sm")) {
+        font-size: 48px;
+      }
 
-  @media screen and (min-width: map.get($grid-breakpoints, "md")) {
-    font-size: 56px;
-  }
+      @media screen and (min-width: map.get($grid-breakpoints, "md")) {
+        font-size: 56px;
+      }
 
-  @media screen and (min-width: map.get($grid-breakpoints, "lg")) {
-    font-size: 64px;
-    line-height: 1.344em;
-  }
-}
+      @media screen and (min-width: map.get($grid-breakpoints, "lg")) {
+        font-size: 64px;
+        line-height: 1.344em;
+      }
+    }
 
-.slider-desc {
-  background-color: white;
-  color: map-get($theme-colors, "darkGrey");
-  font-size: 14px;
-  line-height: 1.143em;
-  padding: 1rem 0.75rem;
-  margin: 0.625rem auto;
-  max-width: 91.5%;
-
-  @media screen and (min-width: map.get($grid-breakpoints, "xs")) {
-    font-size: 16px;
-  }
-
-  @media screen and (min-width: map.get($grid-breakpoints, "sm")) {
-    font-size: 18px;
-  }
-
-  @media screen and (min-width: map.get($grid-breakpoints, "md")) {
-    font-size: 22px;
-  }
-
-  @media screen and (min-width: map.get($grid-breakpoints, "lg")) {
-    font-size: 24px;
-    line-height: 1.153em;
-    margin: 2rem auto;
-  }
-}
-
-.slider-logo {
-  margin-bottom: 0;
-
-  @media screen and (min-width: map.get($grid-breakpoints, "xs")) {
-    width: 50px;
-  }
-
-  @media screen and (min-width: map.get($grid-breakpoints, "sm")) {
-    width: 70px;
-  }
-
-  @media screen and (min-width: map.get($grid-breakpoints, "md")) {
-    width: 90px;
-  }
-
-  @media screen and (min-width: map.get($grid-breakpoints, "lg")) {
-    width: 110px;
-  }
-}
-
-.slider__indicators-block {
-  z-index: 3;
-
-  @media screen and (min-width: map.get($grid-breakpoints, "xs")) {
-    margin-bottom: 2.5rem;
-  }
-
-  @media screen and (min-width: map.get($grid-breakpoints, "sm")) {
-    margin-bottom: 3.5rem;
-  }
-
-  @media screen and (min-width: map.get($grid-breakpoints, "md")) {
-    margin-bottom: 4.5rem;
-  }
-
-  @media screen and (min-width: map.get($grid-breakpoints, "lg")) {
-    margin-bottom: 6.5rem;
-  }
-}
-
-.slider__indicator {
-  position: relative;
-  background: none !important;
-  opacity: 1 !important;
-  border-top: 2rem !important;
-  border-bottom: 2rem !important;
-  &::after {
-    content: "";
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    border: 1px solid white;
-    width: 0.5rem;
-    height: 0.5rem;
-    border-radius: 50%;
-    transition: 0.5s;
-  }
-
-  &.active {
-    &::after {
+    .slider-desc {
       background-color: white;
+      color: map-get($theme-colors, "darkGrey");
+      font-size: 14px;
+      line-height: 1.143em;
+      padding: 1rem 0.75rem;
+      margin: 0.625rem auto;
+      max-width: 91.5%;
+
+      @media screen and (min-width: map.get($grid-breakpoints, "xs")) {
+        font-size: 16px;
+      }
+
+      @media screen and (min-width: map.get($grid-breakpoints, "sm")) {
+        font-size: 18px;
+      }
+
+      @media screen and (min-width: map.get($grid-breakpoints, "md")) {
+        font-size: 22px;
+      }
+
+      @media screen and (min-width: map.get($grid-breakpoints, "lg")) {
+        font-size: 24px;
+        line-height: 1.153em;
+        margin: 2rem auto;
+      }
     }
-  }
 
-  @media screen and (min-width: map.get($grid-breakpoints, "xs")) {
-    &::after {
-      width: 0.6rem;
-      height: 0.6rem;
+    .slider-logo {
+      margin-bottom: 0;
+
+      @media screen and (min-width: map.get($grid-breakpoints, "xs")) {
+        width: 50px;
+      }
+
+      @media screen and (min-width: map.get($grid-breakpoints, "sm")) {
+        width: 70px;
+      }
+
+      @media screen and (min-width: map.get($grid-breakpoints, "md")) {
+        width: 90px;
+      }
+
+      @media screen and (min-width: map.get($grid-breakpoints, "lg")) {
+        width: 110px;
+      }
     }
-  }
 
-  @media screen and (min-width: map.get($grid-breakpoints, "sm")) {
-    &::after {
-      width: 0.7rem;
-      height: 0.7rem;
+    .slider__indicators-block {
+      z-index: 3;
+
+      @media screen and (min-width: map.get($grid-breakpoints, "xs")) {
+        margin-bottom: 2.5rem;
+      }
+
+      @media screen and (min-width: map.get($grid-breakpoints, "sm")) {
+        margin-bottom: 3.5rem;
+      }
+
+      @media screen and (min-width: map.get($grid-breakpoints, "md")) {
+        margin-bottom: 4.5rem;
+      }
+
+      @media screen and (min-width: map.get($grid-breakpoints, "lg")) {
+        margin-bottom: 6.5rem;
+      }
     }
-  }
 
-  @media screen and (min-width: map.get($grid-breakpoints, "md")) {
-    &::after {
-      width: 0.85rem;
-      height: 0.85rem;
+    .slider__indicator {
+      position: relative;
+      background: none !important;
+      opacity: 1 !important;
+      border-top: 2rem !important;
+      border-bottom: 2rem !important;
+      &::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        border: 1px solid white;
+        width: 0.5rem;
+        height: 0.5rem;
+        border-radius: 50%;
+        transition: 0.5s;
+      }
+
+      &.active {
+        &::after {
+          background-color: white;
+        }
+      }
+
+      @media screen and (min-width: map.get($grid-breakpoints, "xs")) {
+        &::after {
+          width: 0.6rem;
+          height: 0.6rem;
+        }
+      }
+
+      @media screen and (min-width: map.get($grid-breakpoints, "sm")) {
+        &::after {
+          width: 0.7rem;
+          height: 0.7rem;
+        }
+      }
+
+      @media screen and (min-width: map.get($grid-breakpoints, "md")) {
+        &::after {
+          width: 0.85rem;
+          height: 0.85rem;
+        }
+      }
+
+      @media screen and (min-width: map.get($grid-breakpoints, "lg")) {
+        &::after {
+          width: 1rem;
+          height: 1rem;
+        }
+      }
     }
-  }
+  // /Promo section
 
-  @media screen and (min-width: map.get($grid-breakpoints, "lg")) {
-    &::after {
-      width: 1rem;
-      height: 1rem;
+  // Sex section
+    .sex__women-block,
+    .sex__men-block {
+      position: relative;
+      height: 100vh;
+      z-index: 1;
+      overflow: hidden;
+
+      @media screen and (min-width: map.get($grid-breakpoints, "lg")) {
+        height: 740px;
+      }
     }
-  }
-}
-// /Promo section
 
-// Sex section
-.sex__women-block,
-.sex__men-block {
-  position: relative;
-  height: 100vh;
-  z-index: 1;
-  overflow: hidden;
+    .sex__women-block {
+      background-color: rgba(244, 216, 212, 1);
+    }
 
-  @media screen and (min-width: map.get($grid-breakpoints, "lg")) {
-    height: 740px;
-  }
-}
+    .sex__men-block {
+      background-color: rgba(136, 149, 164, 1);
+    }
 
-.sex__women-block {
-  background-color: rgba(244, 216, 212, 1);
-}
+    .sex__women-img,
+    .sex__men-img {
+      position: absolute;
+      bottom: 0;
+      height: 100%;
+      z-index: 2;
+    }
 
-.sex__men-block {
-  background-color: rgba(136, 149, 164, 1);
-}
+    .sex__women-img {
+      left: 0;
+    }
 
-.sex__women-img,
-.sex__men-img {
-  position: absolute;
-  bottom: 0;
-  height: 100%;
-  z-index: 2;
-}
+    .sex__men-img {
+      right: 0;
+    }
 
-.sex__women-img {
-  left: 0;
-}
+    .sex__women-link,
+    .sex__men-link {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 3;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 1.125rem;
+      line-height: 0.75em;
+      font-weight: 300;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      width: 13rem;
+      height: 3.5rem;
+      background: map.get($theme-colors, "lightBeige");
 
-.sex__men-img {
-  right: 0;
-}
+      @media screen and (min-width: map.get($grid-breakpoints, "sm")) {
+        font-size: 1.25rem;
+        width: 14.5rem;
+        height: 3.92rem;
+      }
 
-.sex__women-link,
-.sex__men-link {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 3;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 1.125rem;
-  line-height: 0.75em;
-  font-weight: 300;
-  letter-spacing: 0.3em;
-  text-transform: uppercase;
-  width: 13rem;
-  height: 3.5rem;
-  background: map.get($theme-colors, "lightBeige");
+      @media screen and (min-width: map.get($grid-breakpoints, "md")) {
+        font-size: 1.375rem;
+        width: 16rem;
+        height: 4.33rem;
+      }
 
-  @media screen and (min-width: map.get($grid-breakpoints, "sm")) {
-    font-size: 1.25rem;
-    width: 14.5rem;
-    height: 3.92rem;
-  }
+      @media screen and (min-width: map.get($grid-breakpoints, "lg")) {
+        font-size: 1.5rem;
+        width: 17rem;
+        height: 4.625rem;
+      }
+    }
+  // /Sex section
 
-  @media screen and (min-width: map.get($grid-breakpoints, "md")) {
-    font-size: 1.375rem;
-    width: 16rem;
-    height: 4.33rem;
-  }
+  // Order section
+    .order {
+      padding: 3.5rem 0;
 
-  @media screen and (min-width: map.get($grid-breakpoints, "lg")) {
-    font-size: 1.5rem;
-    width: 17rem;
-    height: 4.625rem;
-  }
-}
-// /Sex section
+      @media screen and (min-width: map.get($grid-breakpoints, "md")) {
+        padding: 6rem 0 7rem 0;
+      }
+    }
 
-// Order section
-.order {
-  padding: 3.5rem 0;
+    .order__container {
+      max-width: 87.5%;
+      text-align: center;
+      padding: 0;
 
-  @media screen and (min-width: map.get($grid-breakpoints, "md")) {
-    padding: 6rem 0 7rem 0;
-  }
-}
+      @media screen and (min-width: map.get($grid-breakpoints, "lg")) {
+        max-width: 81.25%;
+        text-align: left;
+      }
+    }
 
-.order__container {
-  max-width: 87.5%;
-  text-align: center;
-  padding: 0;
+    .order__title {
+      line-height: 1.17em;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid black;
 
-  @media screen and (min-width: map.get($grid-breakpoints, "lg")) {
-    max-width: 81.25%;
-    text-align: left;
-  }
-}
+      @media screen and (min-width: map.get($grid-breakpoints, "sm")) {
+        font-size: 1.25rem;
+      }
 
-.order__title {
-  line-height: 1.17em;
-  padding-bottom: 1rem;
-  border-bottom: 1px solid black;
+      @media screen and (min-width: map.get($grid-breakpoints, "md")) {
+        font-size: 1.375rem;
+        line-height: 1.25em;
+      }
 
-  @media screen and (min-width: map.get($grid-breakpoints, "sm")) {
-    font-size: 1.25rem;
-  }
+      @media screen and (min-width: map.get($grid-breakpoints, "lg")) {
+        font-size: 3rem;
+      }
+    }
 
-  @media screen and (min-width: map.get($grid-breakpoints, "md")) {
-    font-size: 1.375rem;
-    line-height: 1.25em;
-  }
+    .order__content-title {
+      margin-bottom: 0;
 
-  @media screen and (min-width: map.get($grid-breakpoints, "lg")) {
-    font-size: 3rem;
-  }
-}
+      @media screen and (min-width: map.get($grid-breakpoints, "sm")) {
+        font-size: 1.125rem;
+      }
 
-.order__content-title {
-  margin-bottom: 0;
+      @media screen and (min-width: map.get($grid-breakpoints, "md")) {
+        font-size: 1.25rem;
+      }
 
-  @media screen and (min-width: map.get($grid-breakpoints, "sm")) {
-    font-size: 1.125rem;
-  }
+      @media screen and (min-width: map.get($grid-breakpoints, "lg")) {
+        font-size: 1.125rem;
+        line-height: 1.667em;
+      }
+    }
 
-  @media screen and (min-width: map.get($grid-breakpoints, "md")) {
-    font-size: 1.25rem;
-  }
+    .order__content-title:first-child {
+      @media screen and (min-width: map.get($grid-breakpoints, "md")) {
+        align-self: flex-end;
+      }
+    }
 
-  @media screen and (min-width: map.get($grid-breakpoints, "lg")) {
-    font-size: 1.125rem;
-    line-height: 1.667em;
-  }
-}
+    .order__content-title:last-child {
+      @media screen and (min-width: map.get($grid-breakpoints, "md")) {
+        align-self: flex-start;
+      }
+    }
 
-.order__content-title:first-child {
-  @media screen and (min-width: map.get($grid-breakpoints, "md")) {
-    align-self: flex-end;
-  }
-}
+    .order__content-image {
+      margin: 2rem auto;
+      width: fit-content;
 
-.order__content-title:last-child {
-  @media screen and (min-width: map.get($grid-breakpoints, "md")) {
-    align-self: flex-start;
-  }
-}
+      @media screen and (min-width: map.get($grid-breakpoints, "lg")) {
+        margin: 2rem 0;
+      }
+    }
 
-.order__content-image {
-  margin: 2rem auto;
-  width: fit-content;
+    .order__content-title-group,
+    .order__content-input-group {
+      margin: 0 auto;
+    }
 
-  @media screen and (min-width: map.get($grid-breakpoints, "lg")) {
-    margin: 2rem 0;
-  }
-}
+    .order__content-input-group {
+      padding: 0;
+    }
 
-.order__content-title-group,
-.order__content-input-group {
-  margin: 0 auto;
-}
+    .order__content-text {
+      font-family: $secondaryFontFamily;
+      font-size: 0.6875rem;
+      line-height: 1.64em;
+      font-weight: 300;
+      margin-bottom: 1rem;
 
-.order__content-input-group {
-  padding: 0;
-}
+      @media screen and (min-width: map.get($grid-breakpoints, "md")) {
+        align-self: flex-end;
+        font-size: 1.0625rem;
+        line-height: 1.41em;
+      }
+    }
 
-.order__content-text {
-  font-family: $secondaryFontFamily;
-  font-size: 0.6875rem;
-  line-height: 1.64em;
-  font-weight: 300;
-  margin-bottom: 1rem;
+    .order__content-input,
+    .order__content-btn {
+      border: none;
+      border-radius: 0;
 
-  @media screen and (min-width: map.get($grid-breakpoints, "md")) {
-    align-self: flex-end;
-    font-size: 1.0625rem;
-    line-height: 1.41em;
-  }
-}
+      @media screen and (min-width: map.get($grid-breakpoints, "md")) {
+        max-height: 45px;
+      }
 
-.order__content-input,
-.order__content-btn {
-  border: none;
-  border-radius: 0;
+      @media screen and (min-width: map.get($grid-breakpoints, "xl")) {
+        max-height: 48px;
+      }
+    }
 
-  @media screen and (min-width: map.get($grid-breakpoints, "md")) {
-    max-height: 45px;
-  }
+    .order__content-input,
+    .order__content-btn {
+      padding: 0.375rem 0.75rem;
 
-  @media screen and (min-width: map.get($grid-breakpoints, "xl")) {
-    max-height: 48px;
-  }
-}
+      @media screen and (min-width: map.get($grid-breakpoints, "md")) {
+        align-self: flex-start;
+      }
+    }
 
-.order__content-input,
-.order__content-btn {
-  padding: 0.375rem 0.75rem;
+    .order__content-input {
+      background-color: rgba(239, 237, 233, 1);
+      color: black;
+      font-family: $secondaryFontFamily;
+      font-size: 0.6875rem;
+      font-weight: 300;
+      line-height: 1.64em;
+      border: 1px solid rgba(223, 219, 212, 1);
 
-  @media screen and (min-width: map.get($grid-breakpoints, "md")) {
-    align-self: flex-start;
-  }
-}
+      @media screen and (min-width: map.get($grid-breakpoints, "md")) {
+        font-size: 1rem;
+        line-height: 1.5em;
+        padding: 0.75rem;
+      }
+    }
 
-.order__content-input {
-  background-color: rgba(239, 237, 233, 1);
-  color: black;
-  font-family: $secondaryFontFamily;
-  font-size: 0.6875rem;
-  font-weight: 300;
-  line-height: 1.64em;
-  border: 1px solid rgba(223, 219, 212, 1);
+    .order__content-input::placeholder {
+      color: black;
+      letter-spacing: 0.075em;
+    }
 
-  @media screen and (min-width: map.get($grid-breakpoints, "md")) {
-    font-size: 1rem;
-    line-height: 1.5em;
-    padding: 0.75rem;
-  }
-}
+    .order__content-btn {
+      background-color: map.get($button-colors, "secondaryActive");
+      color: map.get($theme-colors, "darkGrey");
+      text-transform: uppercase;
+      font-size: 0.625rem;
+      font-weight: 300;
+      letter-spacing: 0.3em;
+      line-height: 1.4em;
 
-.order__content-input::placeholder {
-  color: black;
-  letter-spacing: 0.075em;
-}
+      @media screen and (min-width: map.get($grid-breakpoints, "sm")) {
+        font-size: 1.25rem;
+      }
 
-.order__content-btn {
-  background-color: map.get($button-colors, "secondaryActive");
-  color: map.get($theme-colors, "darkGrey");
-  text-transform: uppercase;
-  font-size: 0.625rem;
-  font-weight: 300;
-  letter-spacing: 0.3em;
-  line-height: 1.4em;
+      @media screen and (min-width: map.get($grid-breakpoints, "md")) {
+        font-size: 0.75rem;
+        line-height: 1.125em;
+        padding: 1rem;
+      }
 
-  @media screen and (min-width: map.get($grid-breakpoints, "sm")) {
-    font-size: 1.25rem;
-  }
+      @media screen and (min-width: map.get($grid-breakpoints, "xl")) {
+        font-size: 0.875rem;
+        padding: 1.125rem;
+      }
+    }
 
-  @media screen and (min-width: map.get($grid-breakpoints, "md")) {
-    font-size: 0.75rem;
-    line-height: 1.125em;
-    padding: 1rem;
-  }
+    .order__content-btn:hover {
+      background-color: map.get($button-colors, "secondaryHover");
+    }
 
-  @media screen and (min-width: map.get($grid-breakpoints, "xl")) {
-    font-size: 0.875rem;
-    padding: 1.125rem;
-  }
-}
+    .order__content-btn:active {
+      background-color: map.get($button-colors, "secondaryOnClick");
+    }
 
-.order__content-btn:hover {
-  background-color: map.get($button-colors, "secondaryHover");
-}
+    .order__content-btn:disabled {
+      background-color: map.get($button-colors, "secondaryDisabled");
+    }
+  // /Order section
 
-.order__content-btn:active {
-  background-color: map.get($button-colors, "secondaryOnClick");
-}
+  // Categories section
+    .categories__block {
+      position: relative;
+      height: 100vh;
+      z-index: 1;
+    }
 
-.order__content-btn:disabled {
-  background-color: map.get($button-colors, "secondaryDisabled");
-}
+    .categories__first-block {
+      background-color: map-get($categories-colors, "firstBlock");
+    }
 
-// /Order section
+    .categories__second-block {
+      background-color: map-get($categories-colors, "secondBlock");
+    }
 
-// Categories section
-.categories__block {
-  position: relative;
-  height: 100vh;
-  z-index: 1;
-}
+    .categories__third-block {
+      background-color: map-get($categories-colors, "thirdBlock");
+    }
 
-.categories__first-block {
-  background-color: map-get($categories-colors, "firstBlock");
-}
+    .categories__link {
+      position: absolute;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 1.125rem;
+      line-height: 3.33em;
+      letter-spacing: 0.5em;
+      text-transform: uppercase;
+      z-index: 3;
 
-.categories__second-block {
-  background-color: map-get($categories-colors, "secondBlock");
-}
+      @media screen and (min-width: map.get($grid-breakpoints, "sm")) {
+        font-size: 1.25rem;
+      }
 
-.categories__third-block {
-  background-color: map-get($categories-colors, "thirdBlock");
-}
+      @media screen and (min-width: map.get($grid-breakpoints, "md")) {
+        font-size: 1.5rem;
+        line-height: 3em;
+      }
 
-.categories__link {
-  position: absolute;
-  top: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 1.125rem;
-  line-height: 3.33em;
-  letter-spacing: 0.5em;
-  text-transform: uppercase;
-  z-index: 3;
+      @media screen and (min-width: map.get($grid-breakpoints, "lg")) {
+        font-size: 1.675rem;
+        line-height: 2.5em;
+      }
 
-  @media screen and (min-width: map.get($grid-breakpoints, "sm")) {
-    font-size: 1.25rem;
-  }
+      @media screen and (min-width: map.get($grid-breakpoints, "xl")) {
+        font-size: 1.875rem;
+        line-height: 2em;
+      }
+    }
 
-  @media screen and (min-width: map.get($grid-breakpoints, "md")) {
-    font-size: 1.5rem;
-    line-height: 3em;
-  }
+    .categories__img {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      max-width: 322px;
+      z-index: 2;
+      max-height: calc(100vh - 80px);
+      
+      @media screen and (min-width: map.get($grid-breakpoints, "sm")) {
+        height: 90vh;
+        width: auto;
+        max-height: fit-content;
+        max-width: 510px;
+      }
 
-  @media screen and (min-width: map.get($grid-breakpoints, "lg")) {
-    font-size: 1.675rem;
-    line-height: 2.5em;
-  }
-
-  @media screen and (min-width: map.get($grid-breakpoints, "xl")) {
-    font-size: 1.875rem;
-    line-height: 2em;
-  }
-}
-
-.categories__img {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  max-width: 322px;
-  z-index: 2;
-  max-height: calc(100vh - 80px);
-  
-  @media screen and (min-width: map.get($grid-breakpoints, "sm")) {
-    height: 90vh;
-    width: auto;
-    max-height: fit-content;
-    max-width: 510px;
-  }
-
-  @media screen and (min-width: map.get($grid-breakpoints, "lg")) {
-    height: auto;
-    width: 100%;
-  }
-}
-// /Categories section
+      @media screen and (min-width: map.get($grid-breakpoints, "lg")) {
+        height: auto;
+        width: 100%;
+      }
+    }
+  // /Categories section
 
 // /Main
 
 // Footer
-.footer {
-  color: map.get($theme-colors, "darkGrey");
-  background-color: map.get($theme-colors, "lightBeige");
-  padding: 0.75rem 1.25rem;
-}
-
-.footer__block {
-  align-items: center;
-  border-top: 1px solid map.get($theme-colors, "darkGrey");
-  margin: 0 auto;
-}
-
-.footer__icon {
-  width: 100%;
-  height: 1rem;
-}
-
-.footer__link {
-  width: fit-content;
-  font-size: 10px;
-  line-height: 1.4;
-  letter-spacing: 0.3em;
-  font-weight: 300;
-  padding: 1rem 0;
-  margin-right: 1.5rem;
-
-  @media screen and (min-width: map.get($grid-breakpoints, "sm")) {
-    font-size: 11px;
+  .footer {
+    color: map.get($theme-colors, "darkGrey");
+    background-color: map.get($theme-colors, "lightBeige");
+    padding: 0.75rem 1.25rem;
   }
 
-  @media screen and (min-width: map.get($grid-breakpoints, "lg")) {
-    font-size: 12px;
-    line-height: 1.75;
-    letter-spacing: 0.2em;
-    padding: 2rem 0;
-    margin-right: 2rem;
+  .footer__block {
+    align-items: center;
+    border-top: 1px solid map.get($theme-colors, "darkGrey");
+    margin: 0 auto;
   }
-}
 
-.footer__icon-link {
-  margin-right: 1.25rem;
-}
-
-.footer__link-lookBooks {
-  display: none;
-
-  @media screen and (min-width: map.get($grid-breakpoints, "lg")) {
-    display: block;
+  .footer__icon {
+    width: 100%;
+    height: 1rem;
   }
-}
+
+  .footer__link {
+    width: fit-content;
+    font-size: 10px;
+    line-height: 1.4;
+    letter-spacing: 0.3em;
+    font-weight: 300;
+    padding: 1rem 0;
+    margin-right: 1.5rem;
+
+    @media screen and (min-width: map.get($grid-breakpoints, "sm")) {
+      font-size: 11px;
+    }
+
+    @media screen and (min-width: map.get($grid-breakpoints, "lg")) {
+      font-size: 12px;
+      line-height: 1.75;
+      letter-spacing: 0.2em;
+      padding: 2rem 0;
+      margin-right: 2rem;
+    }
+  }
+
+  .footer__icon-link {
+    margin-right: 1.25rem;
+  }
+
+  .footer__link-lookBooks {
+    display: none;
+
+    @media screen and (min-width: map.get($grid-breakpoints, "lg")) {
+      display: block;
+    }
+  }
 // /Footer
